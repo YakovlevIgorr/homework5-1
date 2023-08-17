@@ -1,34 +1,55 @@
 #include <iostream>
 
-class Unknow_sides{
+class Figure{
+protected:
+
+    int sides_count = 0;
+    std::string name;
+
 public:
-    void print() {
-        std::cout << "Фигура: 0" << "\n";
+    Figure(){
+        int sides_count = 0;
+        name = "Фигура: ";
+
+    }
+    void get_name(){
+        std::cout << name;
+    }
+
+    void get_sides_count(){
+        std::cout << sides_count << "\n";
+    }
+
+};
+
+class Triangle:Figure{
+public:
+    Triangle(){
+        sides_count = 3;
+        name = "Треугольник: ";
+        get_name();
+        get_sides_count();
     }
 };
 
-class Three_side:Unknow_sides{
+class Quadrangle:Figure{
 public:
-    void print() {
-        std::cout << "Треугольник: 3" << "\n";
+    Quadrangle(){
+        sides_count = 4;
+        name = "Четырёхугольник: ";
+        get_name();
+        get_sides_count();
     }
-};
 
-class Four_side:Three_side{
-public:
-    void print(){
-        std::cout << "Четырёхугольник: 4" << "\n";
-    }
+
 };
 
 int main() {
     std::cout << "Количество сторон:" << std::endl;
-    Unknow_sides unknowSides;
-    unknowSides.print();
-    Three_side threeSide;
-    threeSide.print();
-    Four_side fourSide;
-    fourSide.print();
+    Figure().get_name();
+    Figure().get_sides_count();
+    Triangle triangle;
+    Quadrangle quadrangle;
 
     return 0;
 }
